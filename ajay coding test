@@ -1,0 +1,724 @@
+
+Q 1) write a program to Print Right Alphabetic triangle
+
+A
+A B
+A B C
+A B C D
+A B C D E
+
+
+const n = 5;
+
+
+for(let i=0; i<n; i++) {
+  let row = "";
+ 
+  for(let j=0; j<=i; j++) {
+    let ch = String.fromCharCode(65 + j); 
+    row += ch + " ";
+  }
+  console.log(row); 
+  
+  
+}
+
+
+---------------------------------------------------------------------------------
+Q 2)Wrie Html script to Apply animation on homepage using css?
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage with CSS animation</title>
+    <style>
+      
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+     
+      header {
+        animation: fade-in 1s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <header><!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage with CSS animation</title>
+    <style>
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      
+
+      button {
+        animation: bounce 0.5s ease-out infinite;
+        background-color: #ff9933;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to my homepage</h1>
+      <p>Check out my cool animations!</p>
+      <button>Click me!</button>
+    </header>
+    
+    <section>
+      <h2>About me</h2>
+      <p>I'm a web developer who loves creating engaging user experiences.</p>
+    </section>
+    
+    <footer>
+      <p>&copy; 2023 My Homepage. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+      <h1>Welcome to my homepage</h1>
+      <p>Check out my cool animations!</p>
+    </header>
+    
+    <section>
+      <h2>About me</h2>
+      <p>I'm a web developer who loves creating engaging user experiences.</p>
+    </section>
+    
+    <footer>
+      <p>&copy; 2023 My Homepage. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+------------------------------------------------------------------------------------------------------
+Q3.Make a Portfolio Gallery using html and bootstrap?
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio Gallery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<style>
+		.container {
+			margin-top: 30px;
+		}
+
+		.card {
+			margin-bottom: 30px;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<h2>Portfolio Gallery</h2>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card">
+				<img class="card-img-top" src="https://via.placeholder.com/350x200" alt="Card image">
+				<div class="card-body">
+					<h4 class="card-title">Project 1</h4>
+					<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<a href="#" class="btn btn-primary">Learn More</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<img class="card-img-top" src="https://via.placeholder.com/350x200" alt="Card image">
+				<div class="card-body">
+					<h4 class="card-title">Project 2</h4>
+					<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<a href="#" class="btn btn-primary">Learn More</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<img class="card-img-top" src="https://via.placeholder.com/350x200" alt="Card image">
+				<div class="card-body">
+					<h4 class="card-title">Project 3</h4>
+					<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<a href="#" class="btn btn-primary">Learn More</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+
+------------------------------------------------------------------------------------------------------
+Q4.From the following table, write a SQL query to find customers whose grade is 200. Return customer_id, cust_name, city, grade, salesman_id.
+SELECT customer_id, cust_name, city, grade, salesman_id
+FROM customers
+WHERE grade = 200;
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q5.Write the Queries to implement
+a) Equi Join
+b) Non-Equi Join
+c) Self Join
+d) Full Outer Join
+
+CREATE TABLE employees (
+  id INT PRIMARY KEY,
+  name VARCHAR(50),
+  age INT,
+  department VARCHAR(50),
+  manager_id INT
+);
+
+INSERT INTO employees VALUES
+(1, 'John Doe', 30, 'Sales', 3),
+(2, 'Jane Smith', 25, 'Marketing', 4),
+(3, 'Bob Johnson', 40, 'Sales', NULL),
+(4, 'Sara Lee', 35, 'Marketing', NULL),
+(5, 'Tom Wilson', 45, 'Sales', 3);
+
+a) Equi Join
+
+CREATE TABLE managers (
+  id INT PRIMARY KEY,
+  name VARCHAR(50),
+  department VARCHAR(50)
+);
+
+INSERT INTO managers VALUES
+(3, 'Alice Brown', 'Sales'),
+(4, 'David Green', 'Marketing');
+
+SELECT *
+FROM employees
+JOIN managers
+ON employees.manager_id = managers.id;
+
+
+b) Non-Equi Join:
+SELECT *
+FROM employees
+JOIN managers
+ON employees.department = managers.department
+AND employees.age > 30;
+
+c) Self Join:
+SELECT e1.id, e1.name, e2.name as manager_name
+FROM employees e1
+JOIN employees e2
+ON e1.manager_id = e2.id;
+
+d) Full Outer Join:
+SELECT *
+FROM employees
+FULL OUTER JOIN managers
+ON employees.department = managers.department;
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q6.Consider the following database schema to write queries in SQL
+
+SQL> select *from sailors;
+
+SID | SNAME |RATING |AGE
+22 |DUSTIN |7 |45
+29 |BRUTUS |1 |33
+31 |LUBBER |8 |55.5
+32 |ANDY |8 |25.5
+58 |RUSTY |10 |35
+64 |HORTAIO |7 |35
+71 |ZORBA |10 |16
+74 |HORTAIO |9 |35
+85 |ART |3 |25.5
+95 |BOB |3 |63.5
+
+10 ROWS SELECETED.
+
+
+SQL> select *from reserves;
+
+SID | BID |DAY
+22 | 101 |10-OCT-98
+22 | 102 |10-OCT-98
+22 | 103 |8-OCT-98
+22 | 104 |7-OCT-98
+31 | 102 |10-NOV-98
+31 | 103 |06-NOV-98
+31 | 104 |12-NOV-98
+64 | 101 |05-SEP-98
+64 | 102 |08-SEP-98
+74 | 103 |08-SEP-98
+
+10 ROWS SELECETED.
+
+
+SQL> select *from reserves;
+
+
+BID | BNAME |COLOR
+101 | Interlake |blue
+102 | Interlake |red
+103 | clipper |green
+104 | Marine |red
+
+i) Find the sailors who have reserved a red boat
+ii) Find the names of the sailors who have reserved at least two boats
+iii) Find the colors of the boats reserved by ‘Mohan’.
+iv) Find the names of sailors who have reserved both a red and a green boat?
+v) Find the sids of sailors with age over 20 who have not reserved a red boat.
+
+
+1)
+SELECT DISTINCT s.SNAME 
+FROM sailors s 
+JOIN reserves r ON s.SID = r.SID 
+JOIN boats b ON r.BID = b.BID 
+WHERE b.COLOR = 'red';
+
+
+2)
+SELECT s.SNAME 
+FROM sailors s 
+JOIN reserves r ON s.SID = r.SID 
+GROUP BY r.SID 
+HAVING COUNT(*) >= 2;
+
+
+3)
+SELECT b.COLOR 
+FROM sailors s 
+JOIN reserves r ON s.SID = r.SID 
+JOIN boats b ON r.BID = b.BID 
+WHERE s.SNAME = 'Mohan';
+
+
+4)
+SELECT s.SNAME 
+FROM sailors s 
+JOIN reserves r ON s.SID = r.SID 
+JOIN boats b ON r.BID = b.BID 
+WHERE b.COLOR IN ('red', 'green') 
+GROUP BY r.SID 
+HAVING COUNT(DISTINCT b.COLOR) = 2;
+
+
+5)
+SELECT SID 
+FROM sailors 
+WHERE AGE > 20 AND NOT EXISTS (
+    SELECT * 
+    FROM reserves r 
+    JOIN boats b ON r.BID = b.BID 
+    WHERE r.SID = sailors.SID AND b.COLOR = 'red'
+);
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q7.Write a code to check two accepted numbers are amicable or not.
+
+
+function isAmicable(num1, num2) {
+	
+	let sum1 = 0;
+	for (let i = 1; i < num1; i++) {
+	  if (num1 % i === 0) {
+		sum1 += i;
+	  }
+	}
+	
+	
+	let sum2 = 0;
+	for (let i = 1; i < num2; i++) {
+	  if (num2 % i === 0) {
+		sum2 += i;
+	  }
+	}
+	
+	
+	if (sum1 === num2 && sum2 === num1 && num1 !== num2) {
+	  return true;
+	} else {
+	  return false;
+	}
+  }
+  console.log(isAmicable(220, 284)); // true
+  console.log(isAmicable(1184, 1210)); // true
+  console.log(isAmicable(220, 221)); // false
+  
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q9.Employee TABLE
+
+EMPNO |EMP_NAME |DEPT |SALARY |DOJ |BRANCH
+E101 |Amit |Production |45000 |12-Mar-00 |Bangalore
+E102 |Amit |HR |70000 |03-Jul-02 |Bangalore
+E103 |Sunita |management |120000 |11-Jan-01 |Mysore
+E105 |sunita |IT |67000 |01-Aug-01 |Mysore
+E106 |Mahesh |civil di |145000 |20-Sep-03 |Mumbai
+
+
+perform the following
+1.display all the fields of employee table
+ans:SELECT * FROM Employee;
+
+2.retrive employee number and their salary
+ans:SELECT EMPNO, SALARY FROM Employee;
+
+3.retrive average salary of all employee
+ans:SELECT AVG(SALARY) AS AVG_SALARY FROM Employee;
+
+4.retrive number of employee
+ans:SELECT COUNT(*) AS NUM_EMPLOYEES FROM Employee;
+
+5.retrive distinct number of employee
+ans:SELECT COUNT(DISTINCT EMPNO) AS NUM_DISTINCT_EMPLOYEES FROM Employee;
+
+6.retrive total salary of employee group by employee name and count similar names
+ans:SELECT EMP_NAME, SUM(SALARY) AS TOTAL_SALARY, COUNT(*) AS NUM_EMPLOYEES
+FROM Employee
+GROUP BY EMP_NAME;
+
+7.retrieve total salary of employee which is greater than >120000
+ans:SELECT SUM(SALARY) AS TOTAL_SALARY
+FROM Employee
+WHERE SALARY > 120000;
+
+8.display name of employee in descending order
+ans:SELECT EMP_NAME FROM Employee
+ORDER BY EMP_NAME DESC;
+
+9.display details of employee whose name is AMIT and salary greater than 50000;
+ans:SELECT * FROM Employee
+WHERE EMP_NAME = 'Amit' AND SALARY > 50000;
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q10.Write a program to create 3 matrices of user defined dimensions. Matrices to be named as cost, benefit, board.
+Randomly fill the values in first two matrices, third matrix needs only "*" or "." as the input if other values entered it should display wrong input entered and should ask for the value again. Based on cells having "*" should be counted as selected and should display loss or profit.
+
+
+
+function createMatrix(rows, cols) {
+  let matrix = [];
+  for (let i = 0; i < rows; i++) {
+    let row = [];
+    for (let j = 0; j < cols; j++) {
+      row.push(Math.floor(Math.random() * 10));
+    }
+    matrix.push(row);
+  }
+  return matrix;
+}
+
+function getBoard(rows, cols) {
+  let board = [];
+  for (let i = 0; i < rows; i++) {
+    let row = [];
+    for (let j = 0; j < cols; j++) {
+      let validInput = false;
+      while (!validInput) {
+        let input = prompt(`Enter a value for row ${i+1}, column ${j+1}:`);
+        if (input === "*" || input === ".") {
+          row.push(input);
+          validInput = true;
+        } else {
+          alert("Invalid input entered. Please enter only '*' or '.'.");
+        }
+      }
+    }
+    board.push(row);
+  }
+  return board;
+}
+
+let rows = parseInt(prompt("Enter the number of rows for the matrices:"));
+let cols = parseInt(prompt("Enter the number of columns for the matrices:"));
+
+let cost = createMatrix(rows, cols);
+let benefit = createMatrix(rows, cols);
+
+let board = getBoard(rows, cols);
+
+let selectedCount = 0;
+for (let i = 0; i < rows; i++) {
+  for (let j = 0; j < cols; j++) {
+    if (board[i][j] === "*") {
+      selectedCount++;
+    }
+  }
+}
+
+let profit = selectedCount * 100 - (rows * cols - selectedCount) * 50;
+
+console.log("Cost Matrix:");
+console.table(cost);
+console.log("Benefit Matrix:");
+console.table(benefit);
+console.log("Board Matrix:");
+console.table(board);
+console.log(`Selected cells: ${selectedCount}`);
+console.log(`Profit/Loss: ${profit}`);
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q11.Write code to check whether the string is palindrome or not
+
+function isPalindrome(str) {
+	str = str.replace(/[^0-9a-z]/gi, '').toLowerCase();
+	return str === str.split('').reverse().join('');
+  }
+  
+  console.log(isPalindrome("racecar"));
+  console.log(isPalindrome("hello"));
+  console.log(isPalindrome("A man, a plan, a canal: Panama"));
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q12.Write a program to print mirror lower star triangle pattern of n lines
+
+Input: 7
+
+Output:
+* * * * * * *
+* * * * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * * * *
+* * * * * * *
+
+
+function printMirrorLowerStarTriangle(n) {
+	for (let i = n; i >= 1; i--) {
+	  let row = '';
+	  for (let j = 1; j <= i; j++) {
+		row += '* ';
+	  }
+	  console.log(row);
+	}
+  
+	for (let i = 1; i <= n; i++) {
+	  let row = '';
+	  for (let j = 1; j <= i; j++) {
+		row += '* ';
+	  }
+	  console.log(row);
+	}
+  }
+  printMirrorLowerStarTriangle(7);
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q13.Write a code to print armstrong numbers between 2 accepted numbers.
+
+const lower = parseInt(prompt("Enter lower range: "));
+const upper = parseInt(prompt("Enter upper range: "));
+
+for (let num = lower; num <= upper; num++) {
+  let sum = 0;
+  let temp = num;
+  let digit;
+  const numOfDigits = num.toString().length;
+
+  while (temp > 0) {
+    digit = temp % 10;
+    sum += Math.pow(digit, numOfDigits);
+    temp = Math.floor(temp / 10);
+  }
+
+  if (num === sum) {
+    console.log(num);
+  }
+}
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+Q14.From the following table, write a SQL query to find all reviewers whose ratings contain a NULL value. Return reviewer name.
+
+Sample table: reviewer
+
+rev_id | rev_name
+--------+--------------------------------
+9001 | Righty Sock
+9002 | Jack Malvern
+9003 | Flagrant Baronessa
+9004 | Alec Shaw
+9005 |
+9006 | Victor Woeltjen
+9007 | Simon Wright
+9008 | Neal Wruck
+9009 | Paul Monks
+9010 | Mike Salvati
+9011 |
+9012 | Wesley S. Walker
+9013 | Sasha Goldshtein
+9014 | Josh Cates
+9015 | Krug Stillo
+9016 | Scott LeBrun
+9017 | Hannah Steele
+9018 | Vincent Cadena
+9019 | Brandt Sponseller
+9020 | Richard Adams
+
+Sample table: rating
+
+mov_id | rev_id | rev_stars | num_o_ratings
+--------+--------+-----------+---------------
+901 | 9001 | 8.40 | 263575
+902 | 9002 | 7.90 | 20207
+903 | 9003 | 8.30 | 202778
+906 | 9005 | 8.20 | 484746
+924 | 9006 | 7.30 |
+908 | 9007 | 8.60 | 779489
+909 | 9008 | | 227235
+910 | 9009 | 3.00 | 195961
+911 | 9010 | 8.10 | 203875
+912 | 9011 | 8.40 |
+914 | 9013 | 7.00 | 862618
+915 | 9001 | 7.70 | 830095
+916 | 9014 | 4.00 | 642132
+925 | 9015 | 7.70 | 81328
+918 | 9016 | | 580301
+920 | 9017 | 8.10 | 609451
+921 | 9018 | 8.00 | 667758
+922 | 9019 | 8.40 | 511613
+923 | 9020 | 6.70 | 13091
+
+
+answer:-
+
+CREATE TABLE reviewer (
+    rev_id INT PRIMARY KEY,
+    rev_name VARCHAR(50)
+);
+
+INSERT INTO reviewer (rev_id, rev_name)
+VALUES 
+    (9001, 'Righty Sock'),
+    (9002, 'Jack Malvern'),
+    (9003, 'Flagrant Baronessa'),
+    (9004, 'Alec Shaw'),
+    (9005, ''),
+    (9006, 'Victor Woeltjen'),
+    (9007, 'Simon Wright'),
+    (9008, 'Neal Wruck'),
+    (9009, 'Paul Monks'),
+    (9010, 'Mike Salvati'),
+    (9011, ''),
+    (9012, 'Wesley S. Walker'),
+    (9013, 'Sasha Goldshtein'),
+    (9014, 'Josh Cates'),
+    (9015, 'Krug Stillo'),
+    (9016, 'Scott LeBrun'),
+    (9017, 'Hannah Steele'),
+    (9018, 'Vincent Cadena'),
+    (9019, 'Brandt Sponseller'),
+    (9020, 'Richard Adams');
+
+CREATE TABLE rating (
+    mov_id INT PRIMARY KEY,
+    rev_id INT,
+    rev_stars FLOAT,
+    num_o_ratings INT
+);
+
+INSERT INTO rating (mov_id, rev_id, rev_stars, num_o_ratings)
+VALUES 
+    (901, 9001, 8.40, 263575),
+    (902, 9002, 7.90, 20207),
+    (903, 9003, 8.30, 202778),
+    (906, 9005, 8.20, 484746),
+    (924, 9006, 7.30, NULL),
+    (908, 9007, 8.60, 779489),
+    (909, 9008, NULL, 227235),
+    (910, 9009, 3.00, 195961),
+    (911, 9010, 8.10, 203875),
+    (912, 9011, 8.40, NULL),
+    (914, 9013, 7.00, 862618),
+    (915, 9001, 7.70, 830095),
+    (916, 9014, 4.00, 642132),
+    (925, 9015, 7.70, 81328),
+    (918, 9016, NULL, 580301),
+    (920, 9017, 8.10, 609451),
+    (921, 9018, 8.00, 667758),
+    (922, 9019, 8.40, 511613),
+    (923, 9020, 6.70, 13091);
+
+SELECT rev_name
+FROM reviewer r
+INNER JOIN rating ra ON r.rev_id = ra.rev_id
+WHERE ra.rev_stars IS NULL;
